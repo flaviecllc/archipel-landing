@@ -248,13 +248,17 @@
     }
 
     .section-title {
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-size: clamp(2rem, 3.5vw, 3rem);
       font-weight: 800;
       letter-spacing: -0.04em;
-      color: var(--navy);
-      line-height: 1.15;
-      max-width: 560px;
+      background: linear-gradient(135deg, var(--navy) 35%, #c96a3a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.12;
+      max-width: 640px;
       margin-bottom: 52px;
+      text-wrap: balance;
     }
 
     /* ── POURQUOI NOUS ── */
@@ -657,7 +661,7 @@
     /* ── OFFRES ── */
     .offres { background: var(--navy); position: relative; overflow: hidden; }
 
-    .offres .section-title { color: var(--white); }
+    .offres .section-title { background: none; -webkit-text-fill-color: var(--white); color: var(--white); }
     .offres .section-label { color: var(--orange); }
 
     .offres-grid {
@@ -972,7 +976,7 @@
     }
 
     .dec .section-label { color: var(--orange); }
-    .dec .section-title { color: var(--white); margin-bottom: 20px; }
+    .dec .section-title { background: none; -webkit-text-fill-color: var(--white); color: var(--white); margin-bottom: 20px; }
 
     .dec-intro {
       font-size: 0.95rem;
