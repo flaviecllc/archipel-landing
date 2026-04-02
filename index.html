@@ -424,113 +424,78 @@
       font-weight: 700;
     }
 
-    /* ── CABINETS ── */
-    .cabinets-carousel-wrapper {
-      position: relative;
+    /* ── CABINETS MARQUEE ── */
+    .cabinets-marquee-section { background: var(--grey-light); }
+
+    .cabinets-marquee-section .section-title { margin-bottom: 16px; }
+
+    .cabinets-marquee-section .section-intro {
+      font-size: 0.95rem;
+      color: var(--grey);
+      margin-bottom: 48px;
+      max-width: 480px;
     }
 
-    .cabinets-carousel {
+    .marquee-wrapper {
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    }
+
+    .marquee-track {
       display: flex;
       gap: 16px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      padding-bottom: 4px;
-      cursor: grab;
+      width: max-content;
+      animation: marquee 32s linear infinite;
     }
 
-    .cabinets-carousel:active { cursor: grabbing; }
-    .cabinets-carousel::-webkit-scrollbar { display: none; }
+    .marquee-wrapper:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
 
     .cabinet-card {
-      flex: 0 0 260px;
-      scroll-snap-align: start;
-      border: 1.5px solid rgba(0,0,0,0.08);
-      border-radius: 14px;
-      padding: 24px;
-      transition: all 0.2s;
+      flex: 0 0 240px;
+      border: 1.5px solid rgba(0,0,0,0.07);
+      border-radius: 16px;
+      padding: 22px 24px;
+      transition: all 0.25s;
       text-decoration: none;
       display: block;
-      cursor: pointer;
       background: var(--white);
     }
 
     .cabinet-card:hover {
       border-color: var(--orange);
       background: var(--sand);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
     }
 
     .cabinet-card h3 {
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 700;
       color: var(--navy);
       margin-bottom: 4px;
+      white-space: nowrap;
     }
 
     .cabinet-card .location {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: var(--orange);
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      white-space: nowrap;
     }
 
     .cabinet-card p {
-      font-size: 0.82rem;
+      font-size: 0.80rem;
       color: var(--grey);
-      line-height: 1.5;
-    }
-
-    .carousel-controls {
-      display: flex;
-      gap: 8px;
-      margin-top: 24px;
-    }
-
-    .carousel-btn {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(0,0,0,0.12);
-      background: var(--white);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      color: var(--navy);
-      transition: all 0.2s;
-      flex-shrink: 0;
-    }
-
-    .carousel-btn:hover {
-      border-color: var(--navy);
-      background: var(--navy);
-      color: var(--white);
-    }
-
-    .carousel-dots {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-left: 8px;
-    }
-
-    .carousel-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.15);
-      transition: all 0.2s;
-    }
-
-    .carousel-dot.active {
-      width: 20px;
-      border-radius: 3px;
-      background: var(--navy);
+      line-height: 1.55;
     }
 
     /* ── PHOTO BANDE ── */
@@ -1285,11 +1250,10 @@
 </section>
 
 <!-- CABINETS -->
-<section style="background:var(--grey-light);">
+<section class="cabinets-marquee-section">
   <div class="section-label">Nos cabinets</div>
   <div class="section-title">9 structures indépendantes, une ambition commune</div>
-  <div class="cabinets-carousel-wrapper">
-  <div class="cabinets-carousel" id="cabinetsCarousel">
+  <div class="marquee-wrapper"><div class="marquee-track" id="marqueeTrack">
     <a class="cabinet-card" href="https://www.aveia-conseils.fr/" target="_blank">
       <h3>Avei'a</h3>
       <div class="location">Grand Est</div>
@@ -1625,44 +1589,11 @@
 
 <script>
 (function() {
-  const carousel = document.getElementById('cabinetsCarousel');
-  const dots = document.getElementById('cabinetDots');
-  const cards = carousel.querySelectorAll('.cabinet-card');
-  const cardW = 276; // 260 + 16 gap
-
-  // Build dots
-  cards.forEach((_, i) => {
-    const d = document.createElement('div');
-    d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-    dots.appendChild(d);
-  });
-
-  function updateDots() {
-    const idx = Math.round(carousel.scrollLeft / cardW);
-    dots.querySelectorAll('.carousel-dot').forEach((d, i) => {
-      d.classList.toggle('active', i === idx);
-    });
-  }
-
-  document.getElementById('cabinetPrev').addEventListener('click', () => {
-    carousel.scrollBy({ left: -cardW * 3, behavior: 'smooth' });
-  });
-  document.getElementById('cabinetNext').addEventListener('click', () => {
-    carousel.scrollBy({ left: cardW * 3, behavior: 'smooth' });
-  });
-
-  carousel.addEventListener('scroll', updateDots);
-
-  // Drag to scroll
-  let isDown = false, startX, scrollLeft;
-  carousel.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - carousel.offsetLeft; scrollLeft = carousel.scrollLeft; });
-  carousel.addEventListener('mouseleave', () => isDown = false);
-  carousel.addEventListener('mouseup', () => isDown = false);
-  carousel.addEventListener('mousemove', e => {
-    if (!isDown) return;
-    e.preventDefault();
-    carousel.scrollLeft = scrollLeft - (e.pageX - carousel.offsetLeft - startX);
-  });
+  const track = document.getElementById('marqueeTrack');
+  if (!track) return;
+  // Duplicate cards for infinite loop
+  const cards = Array.from(track.children);
+  cards.forEach(card => track.appendChild(card.cloneNode(true)));
 })();
 </script>
 </body>
