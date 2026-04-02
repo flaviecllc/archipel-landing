@@ -667,6 +667,95 @@
 
     .offres .btn-primary:hover { background: #d4784f; }
 
+    /* ── IMRANE SPOTLIGHT ── */
+    .spotlight {
+      background: var(--navy);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spotlight-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 420px;
+    }
+
+    .spotlight-video {
+      position: relative;
+      background: #07102e;
+    }
+
+    .spotlight-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .spotlight-content {
+      padding: 64px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .spotlight-content .section-label { color: var(--orange); }
+
+    .spotlight-quote {
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+
+    .spotlight-quote em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .spotlight-person {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .spotlight-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(232,149,109,0.2);
+      border: 2px solid rgba(232,149,109,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+
+    .spotlight-person-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .spotlight-person-role {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    @media (max-width: 900px) {
+      .spotlight-inner { grid-template-columns: 1fr; }
+      .spotlight-content { padding: 40px 32px; }
+    }
+
     /* ── PROCESS ── */
     .process { background: var(--grey-light); }
 
@@ -1243,6 +1332,29 @@
     </div>
   </div>
   <a href="https://app.wink-lab.com/entreprise/archipel" class="btn-primary" target="_blank">Voir toutes nos offres →</a>
+</section>
+
+<!-- IMRANE SPOTLIGHT -->
+<section class="spotlight">
+  <img src="assets/GROUPE ARCHIPEL ARROW.svg" class="arrow-decor" style="right:-60px;top:50%;transform:translateY(-50%);width:320px;opacity:0.08;" alt="">
+  <div class="spotlight-inner">
+    <div class="spotlight-video">
+      <video controls preload="metadata">
+        <source src="videos/imrane.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="spotlight-content">
+      <div class="section-label">Témoignage</div>
+      <p class="spotlight-quote">« Rejoindre Archipel en CDI, c'était pas juste <em>trouver un poste</em> — c'était choisir un endroit où progresser vraiment. »</p>
+      <div class="spotlight-person">
+        <div class="spotlight-avatar">I</div>
+        <div>
+          <div class="spotlight-person-name">Imrane</div>
+          <div class="spotlight-person-role">Collaborateur</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- PROCESS -->
