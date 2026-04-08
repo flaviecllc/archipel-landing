@@ -243,7 +243,6 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--orange);
-      opacity: 0.85;
       margin-bottom: 14px;
     }
 
@@ -285,12 +284,12 @@
       padding: 32px;
       border: none;
       box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06);
-      transition: transform 0.25s, box-shadow 0.25s;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .why-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      box-shadow: 0 12px 36px rgba(13,27,75,0.10);
     }
 
     .why-card .icon {
@@ -337,20 +336,20 @@
     }
 
     .academy-card {
-      border-radius: 24px;
-      padding: 40px;
+      border-radius: 20px;
+      padding: 36px;
       border: none;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 20px rgba(0,0,0,0.06);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06);
       background: var(--grey-light);
-      transition: all 0.2s;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
       display: flex;
       flex-direction: column;
       gap: 0;
     }
 
     .academy-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(13,27,75,0.10);
     }
 
     .academy-card--highlight {
@@ -526,7 +525,13 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, transparent 40%, rgba(13,31,53,0.4));
+      background: linear-gradient(
+        to bottom,
+        rgba(250,245,239,0.6) 0%,
+        transparent 25%,
+        transparent 70%,
+        rgba(250,245,239,0.7) 100%
+      );
     }
 
     /* ── TÉMOIGNAGES VIDÉO ── */
@@ -550,13 +555,13 @@
       border-radius: 20px;
       overflow: hidden;
       background: var(--navy);
-      box-shadow: 0 8px 40px rgba(13,27,75,0.2);
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(13,27,75,0.12), 0 12px 40px rgba(13,27,75,0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .testimonial-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 48px rgba(13,27,75,0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(13,27,75,0.22);
     }
 
     .video-wrapper {
@@ -661,6 +666,16 @@
     /* ── OFFRES ── */
     .offres { background: var(--navy); position: relative; overflow: hidden; }
 
+    .offres::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(250,245,239,0.08), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
     .offres .section-title { background: none; -webkit-text-fill-color: var(--white); color: var(--white); }
     .offres .section-label { color: var(--orange); }
 
@@ -674,14 +689,16 @@
     .offre-card {
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
+      border-radius: 20px;
       padding: 28px;
-      transition: all 0.2s;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease, border-color 0.2s ease;
     }
 
     .offre-card:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: var(--orange);
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(232,149,109,0.6);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.2);
     }
 
     .offre-card .tag {
@@ -720,7 +737,7 @@
     /* ── IMRANE SPOTLIGHT ── */
     .spotlight {
       background: var(--sand);
-      padding: 88px 80px;
+      padding: 108px 80px;
       position: relative;
       overflow: hidden;
     }
@@ -890,8 +907,15 @@
     .guide-card {
       border-radius: 20px;
       overflow: hidden;
-      border: 1.5px solid rgba(0,0,0,0.07);
+      border: none;
       background: var(--navy);
+      box-shadow: 0 4px 20px rgba(13,27,75,0.12), 0 12px 40px rgba(13,27,75,0.10);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(13,27,75,0.22);
     }
 
     .guide-card-header {
