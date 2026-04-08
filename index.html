@@ -966,6 +966,16 @@
       pointer-events: none;
     }
 
+    .dec::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 160px;
+      background: linear-gradient(to bottom, transparent, #0D1B4B);
+      pointer-events: none;
+      z-index: 2;
+    }
+
     .dec-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
