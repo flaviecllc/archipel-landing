@@ -9,11 +9,12 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --navy: #0D1B4B;
-      --navy-light: #1A2D6B;
-      --orange: #E8956D;
-      --orange-light: #F5C4A8;
-      --blue-mid: #4A6FD4;
+      --navy: #001b56;
+      --navy-light: #0D2875;
+      --blue: #0048FF;
+      --blue-light: #3370FF;
+      --sunrise: #ffcca9;
+      --orange: #0048FF;
       --white: #FFFFFF;
       --grey: #6B7280;
       --grey-light: #F8F6F3;
@@ -51,7 +52,7 @@
       justify-content: space-between;
     }
 
-    nav .logo img { height: 36px; width: auto; }
+    nav .logo img { height: 44px; width: auto; }
 
     nav a.nav-cta {
       background: var(--navy);
@@ -113,7 +114,7 @@
       align-items: center;
       gap: 8px;
       background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(232,149,109,0.6);
+      border: 1px solid rgba(255,204,169,0.6);
       color: var(--white);
       padding: 6px 14px;
       border-radius: 100px;
@@ -128,7 +129,7 @@
     .hero-badge::before {
       content: '';
       width: 7px; height: 7px;
-      background: var(--orange);
+      background: var(--sunrise);
       border-radius: 50%;
     }
 
@@ -155,7 +156,7 @@
 
     .hero h1 em {
       font-style: normal;
-      color: var(--orange);
+      color: var(--sunrise);
     }
 
     .hero p {
@@ -224,7 +225,7 @@
       font-size: 2.2rem;
       font-weight: 800;
       letter-spacing: -0.03em;
-      color: var(--orange);
+      color: var(--sunrise);
       display: block;
     }
 
@@ -250,7 +251,7 @@
       font-size: clamp(2rem, 3.5vw, 3rem);
       font-weight: 800;
       letter-spacing: -0.04em;
-      background: linear-gradient(120deg, var(--navy) 20%, var(--orange) 100%);
+      background: linear-gradient(120deg, var(--navy) 20%, var(--blue) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -367,8 +368,8 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--orange);
-      background: rgba(232,149,109,0.12);
+      color: var(--blue);
+      background: rgba(0,72,255,0.08);
       padding: 4px 10px;
       border-radius: 100px;
       margin-bottom: 20px;
@@ -376,7 +377,8 @@
     }
 
     .academy-card--highlight .academy-tag {
-      background: rgba(232,149,109,0.2);
+      background: rgba(255,204,169,0.2);
+      color: var(--sunrise);
     }
 
     .academy-card h3 {
@@ -426,7 +428,7 @@
       content: '→';
       position: absolute;
       left: 0;
-      color: var(--orange);
+      color: var(--blue);
       font-weight: 700;
     }
 
@@ -653,7 +655,7 @@
 
     .testimonial-role {
       font-size: 0.78rem;
-      color: var(--orange);
+      color: var(--sunrise);
       font-weight: 600;
     }
 
@@ -671,7 +673,7 @@
     }
 
     .offres .section-title { background: none; -webkit-text-fill-color: var(--white); color: var(--white); }
-    .offres .section-label { color: var(--orange); }
+    .offres .section-label { color: var(--sunrise); }
 
     .offres-grid {
       display: grid;
@@ -697,7 +699,7 @@
 
     .offre-card .tag {
       display: inline-block;
-      background: var(--orange);
+      background: var(--sunrise);
       color: var(--navy);
       font-size: 0.72rem;
       font-weight: 700;
@@ -722,11 +724,11 @@
     }
 
     .offres .btn-primary {
-      background: var(--orange);
+      background: var(--sunrise);
       color: var(--navy);
     }
 
-    .offres .btn-primary:hover { background: #d4784f; }
+    .offres .btn-primary:hover { background: #f0b888; }
 
     /* ── IMRANE SPOTLIGHT ── */
     .spotlight {
@@ -769,12 +771,12 @@
       z-index: 1;
     }
 
-    .spotlight-content .section-label { color: var(--orange); }
+    .spotlight-content .section-label { color: var(--blue); }
 
     .spotlight-quote-mark {
       font-size: 5rem;
       line-height: 1;
-      color: var(--orange);
+      color: var(--blue);
       opacity: 0.25;
       font-family: Georgia, serif;
       margin-bottom: -16px;
@@ -792,7 +794,7 @@
 
     .spotlight-quote em {
       font-style: normal;
-      color: var(--orange);
+      color: var(--blue);
     }
 
     .spotlight-person {
@@ -851,8 +853,8 @@
       left: 48px;
       right: 48px;
       height: 1px;
-      background: var(--orange);
-      opacity: 0.3;
+      background: var(--blue);
+      opacity: 0.2;
     }
 
     .step {
@@ -960,7 +962,7 @@
       content: '→';
       position: absolute;
       left: 0;
-      color: var(--orange);
+      color: var(--sunrise);
       font-weight: 700;
     }
 
@@ -1003,7 +1005,7 @@
       z-index: 1;
     }
 
-    .dec .section-label { color: var(--orange); }
+    .dec .section-label { color: var(--sunrise); }
     .dec .section-title { background: none; -webkit-text-fill-color: var(--white); color: var(--white); margin-bottom: 20px; }
 
     .dec-intro {
@@ -1108,7 +1110,7 @@
       margin-top: -2px;
     }
 
-    .form-section .section-label { color: var(--orange); }
+    .form-section .section-label { color: var(--sunrise); }
 
     .form-section .section-title {
       background: none;
@@ -1152,7 +1154,7 @@
 
     .form-perk::before {
       content: '✓';
-      color: var(--orange);
+      color: var(--sunrise);
       font-weight: 800;
       font-size: 0.8rem;
     }
@@ -1192,7 +1194,7 @@
       font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--orange);
+      color: var(--sunrise);
       margin-bottom: 16px;
     }
 
@@ -1241,8 +1243,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--orange);
-      color: var(--white);
+      background: var(--sunrise);
+      color: var(--navy);
       font-weight: 700;
       font-size: 1.05rem;
       padding: 18px 44px;
@@ -1253,9 +1255,9 @@
     }
 
     .btn-tally:hover {
-      background: #d4784f;
+      background: #f0b888;
       transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(232,149,109,0.45);
+      box-shadow: 0 12px 32px rgba(255,204,169,0.45);
     }
 
     /* ── FOOTER ── */
